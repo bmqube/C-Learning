@@ -28,6 +28,12 @@ int startingDay(int year) {
     return (mao+2)%7;
 }
 
+// Meow
+
+void must() {
+    cout<<endl<<endl<<"By Morshed"<<endl;
+}
+
 // Returns month name based on month number
 
 string findMonth(int n) {
@@ -74,6 +80,7 @@ int daysOnMonth(int n, int year) {
 
 void printCalendar(int year) {
     int meow=startingDay(year);
+    cout<<endl<<"               Year: "<<year<<endl<<endl;
     for(int i=0; i<12; i++) {
         string monthName=findMonth(i);
         int bm, days=daysOnMonth(i, year);
@@ -93,6 +100,7 @@ void printCalendar(int year) {
 
         meow=bm;
     }
+    must();
 }
 int main() {
     int year;
