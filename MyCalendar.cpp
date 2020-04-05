@@ -34,7 +34,7 @@ int startingDay(int year) {
 // Meow
 
 void must() {
-    cout<<endl<<endl<<"By Morshed"<<endl;
+    cout<<endl<<"Calendar Successfully Printed"<<endl<<"Akaimma Programs By Morshed"<<endl;
 }
 
 // Returns month name based on month number
@@ -82,27 +82,30 @@ int daysOnMonth(int n, int year) {
 // Prints the whole calendar
 
 void printCalendar(int year) {
+    ofstream cal;
+    cal.open("Calendar.txt");
     int meow=startingDay(year);
-    cout<<endl<<"               Year: "<<year<<endl<<endl;
+    cal<<endl<<"               Year: "<<year<<endl<<endl;
     for(int i=0; i<12; i++) {
         string monthName=findMonth(i);
         int bm, days=daysOnMonth(i, year);
-        cout<<"*************** "<<monthName<<" ***************\n"<<endl;
-        cout<<"  Sat  Sun  Mon  Tue  Wed  Thu  Fri"<<endl;
+        cal<<"*************** "<<monthName<<" ***************\n"<<endl;
+        cal<<"  Sat  Sun  Mon  Tue  Wed  Thu  Fri"<<endl;
         for(bm=0; bm<meow; bm++) {
-            cout<<"     ";
+            cal<<"     ";
         }
         for(int j=1; j<=days; j++) {
-            cout<<setw(5)<<j;
+            cal<<setw(5)<<j;
             if(++bm>6) {
                 bm=0;
-                cout<<endl;
+                cal<<endl;
             }
         }
-        cout<<endl<<endl;
+        cal<<endl<<endl;
 
         meow=bm;
     }
+    cal.close();
     must();
 }
 int main() {
