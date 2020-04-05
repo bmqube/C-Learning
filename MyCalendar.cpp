@@ -35,6 +35,7 @@ int startingDay(int year) {
 
 void must() {
     cout<<endl<<"Calendar Successfully Printed"<<endl;
+    cout<<"(Press 0 to quit)"<<endl<<endl;
 }
 
 // Returns month name based on month number
@@ -111,7 +112,9 @@ void printCalendar(int year) {
 }
 int main() {
     int year;
-    cin>>year;
-    printCalendar(year);
+    while(cin>>year) {
+        if(year==0) break;
+        printCalendar(year);
+    }
     return 0;
 }
